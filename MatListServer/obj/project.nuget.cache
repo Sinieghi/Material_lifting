@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gy2x53efPuAidPVYnXZ4JEPv2lzS4/vv0xAj6v38S7QO19pK5S/vZfzH2Jd5pWIDeL5fPE/6pyuhwGuHab7kOQ==",
+  "dgSpecHash": "rfgkdi5RFUZ7s6Q9+JoxlZC+E+Y7nPyMAXx7KFOQ9Z9QNek024OQOECkQHXe1772HUwGfaGRdx1P1BMlQR66bA==",
   "success": true,
-  "projectFilePath": "E:\\Videira\\MatListServer\\MatListServer.csproj",
+  "projectFilePath": "e:\\Videira\\MatListServer\\MatListServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guilh\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",

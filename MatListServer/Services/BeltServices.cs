@@ -1,4 +1,5 @@
 using DBContext;
+using Microsoft.EntityFrameworkCore;
 using Model;
 
 namespace Services;
@@ -21,11 +22,8 @@ class BeltsServices
         if (obj == null) return null;
         return obj;
     }
-    public async Task<Belt> GetAllBeltAsync()
+    public async Task<List<Belt>> GetAllBeltAsync()
     {
-        var obj = await _context.Belt.FindAsync();
-        if (obj == null) return null;
-        var belt = obj as Belt;
-        return belt;
+        return await _context.Belt.ToListAsync();
     }
 }

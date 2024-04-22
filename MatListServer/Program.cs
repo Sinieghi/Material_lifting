@@ -1,3 +1,5 @@
+using Controller;
+using Model;
 using Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,28 +20,16 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
+var summaries = new BeltController();
+app.MapGet("/belt", async () =>
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
+
+    var forecast = await summaries.GetBeltList();
+    System.Console.WriteLine("", forecast);
     return forecast;
+
 })
-.WithName("GetWeatherForecast")
+.WithName("Belt")
 .WithOpenApi();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

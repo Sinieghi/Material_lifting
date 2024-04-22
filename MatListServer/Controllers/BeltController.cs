@@ -1,11 +1,13 @@
+using Microsoft.AspNetCore.Mvc;
 using Model;
+using Services;
 namespace Controller;
-class BeltController
+class BeltController() : ControllerBase
 {
-    private Belt BeltList { get; set; }
+    private readonly BeltsServices _belt = new();
 
-    public Belt GetBeltList()
+    public async Task<List<Belt>> GetBeltList()
     {
-        return this.BeltList;
+        return await _belt.GetAllBeltAsync();
     }
 }
