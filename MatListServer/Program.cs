@@ -23,13 +23,21 @@ app.UseHttpsRedirection();
 var summaries = new BeltController();
 app.MapGet("/belt", async () =>
 {
-
     var forecast = await summaries.GetBeltList();
     System.Console.WriteLine("", forecast);
     return forecast;
-
 })
 .WithName("Belt")
 .WithOpenApi();
+
+app.MapPost("/insert/belt", async (Belt belt) =>
+{
+    await summaries.InserteBelt(belt);
+}).WithName("Insert").WithOpenApi();
+
+app.MapDelete("/delete/{beltId}", async (int beltId) =>
+{
+    await summaries.DeleteAsync(beltId);
+}).WithName("Delete").WithOpenApi();
 
 app.Run();

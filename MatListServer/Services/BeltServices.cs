@@ -6,7 +6,7 @@ namespace Services;
 class BeltsServices
 {
     private readonly MatListContext _context;
-    public async Task InsertAsync(Belt belt)
+    public async Task InserteBeltAsync(Belt belt)
     {
         _context.Add(belt);
         await _context.SaveChangesAsync();
