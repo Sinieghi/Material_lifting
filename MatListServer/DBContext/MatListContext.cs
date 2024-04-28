@@ -15,6 +15,7 @@ class MatListContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<Belt>(entity =>
         {
             entity.HasKey(x => x.Id);

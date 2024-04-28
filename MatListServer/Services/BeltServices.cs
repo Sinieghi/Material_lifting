@@ -8,6 +8,9 @@ class BeltsServices
     private readonly MatListContext _context = new();
     public async Task InserteBeltAsync(Belt belt)
     {
+
+        _context.Database.EnsureCreated();
+
         _context.Add(belt);
         await _context.SaveChangesAsync();
     }
