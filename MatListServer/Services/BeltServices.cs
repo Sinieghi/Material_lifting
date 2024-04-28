@@ -5,7 +5,7 @@ using Model;
 namespace Services;
 class BeltsServices
 {
-    private readonly MatListContext _context;
+    private readonly MatListContext _context = new();
     public async Task InserteBeltAsync(Belt belt)
     {
         _context.Add(belt);

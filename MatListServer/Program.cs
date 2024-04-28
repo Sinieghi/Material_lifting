@@ -1,6 +1,5 @@
 using Controller;
 using Model;
-using Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<BeltsServices>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -39,5 +37,10 @@ app.MapDelete("/delete/{beltId}", async (int beltId) =>
 {
     await summaries.DeleteAsync(beltId);
 }).WithName("Delete").WithOpenApi();
+
+app.MapGet("/belt/{beltId}", async (int beltId) =>
+{
+    return await summaries.GetBeltAsync(beltId);
+});
 
 app.Run();

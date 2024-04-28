@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MatListServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b2c56ef138fefb17d76b00e57f0bda6c15afb62a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b7fcf099b6d011dbefe70870334fd2332352d28f")]
 [assembly: System.Reflection.AssemblyProductAttribute("MatListServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MatListServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
