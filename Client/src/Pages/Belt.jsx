@@ -61,8 +61,9 @@ class Belt extends Component {
         body: JSON.stringify(belt),
       });
       res.json().then((belRes) => {
-        let belts = findOne({ arr: this.state.belts }, belRes);
+        let belts = findOne(this.state.belts, belRes);
         console.log(belts);
+        console.log(this.state);
         this.setState({
           ...this.state,
           belts,
@@ -155,7 +156,7 @@ class Belt extends Component {
                               name="Size"
                               onChange={(e) => {
                                 this.onChangeHandler(e);
-                                b.size++;
+                                b.size = e.target.value;
                               }}
                             />
                           )}
@@ -170,7 +171,7 @@ class Belt extends Component {
                               name="Quantity"
                               onChange={(e) => {
                                 this.onChangeHandler(e);
-                                b.quantity++;
+                                b.quantity = e.target.value;
                               }}
                             />
                           )}
