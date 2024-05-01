@@ -53,5 +53,8 @@ app.MapGet("/api/belt/{beltId}", async (int beltId) =>
 {
     return await summaries.GetBeltAsync(beltId);
 });
+app.MapPatch("/api/belt/update", async (Belt belt) =>
+  await summaries.UpdateBeltAsync(belt)
+);
 
 app.Run();

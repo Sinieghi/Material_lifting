@@ -1,10 +1,24 @@
 /* eslint-disable react/prop-types */
+
+import { useState } from "react";
+
 // eslint-disable-next-line react/prop-types
+const initialState = {
+  Type: "",
+  Size: "",
+  Quantity: "",
+};
 const CreateAndUpdateBelt = ({ state, setState, createBelt, updateBelt }) => {
+  const [belt, setBelt] = useState({ ...initialState });
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setBelt({ ...belt, [name]: value });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (state.belt) updateBelt();
-    else createBelt();
+    if (state.belt) updateBelt(belt);
+    else createBelt(belt);
   };
   return (
     <form
@@ -27,6 +41,8 @@ const CreateAndUpdateBelt = ({ state, setState, createBelt, updateBelt }) => {
             className="form-control"
             id="floatingInput"
             placeholder="ex: AX"
+            name="Type"
+            onChange={(e) => handleChange(e)}
           />
           <label htmlFor="floatingInput">Tipo</label>
         </div>
@@ -36,6 +52,8 @@ const CreateAndUpdateBelt = ({ state, setState, createBelt, updateBelt }) => {
             className="form-control"
             id="floatingInput"
             placeholder="ex: 26"
+            name="Size"
+            onChange={(e) => handleChange(e)}
           />
           <label htmlFor="floatingInput">Dimensão</label>
         </div>
@@ -45,6 +63,8 @@ const CreateAndUpdateBelt = ({ state, setState, createBelt, updateBelt }) => {
             className="form-control"
             id="floatingInput"
             placeholder="00"
+            name="Quantity"
+            onChange={(e) => handleChange(e)}
           />
           <label htmlFor="floatingInput">Quantidade</label>
         </div>

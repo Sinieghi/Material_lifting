@@ -22,4 +22,5 @@ class BeltController : ControllerBase
     {
         await _belt.DeleteAsync(await _belt.GetByIdAsync(id));
     }
+    public async Task<Belt> UpdateBeltAsync(Belt belt) => await _belt.UpdateBelt(belt);
 }

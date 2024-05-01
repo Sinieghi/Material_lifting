@@ -1,4 +1,5 @@
 using DBContext;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using Model;
 
@@ -28,5 +29,15 @@ class BeltsServices
     public async Task<List<Belt>> GetAllBeltAsync()
     {
         return await _context.Belt.ToListAsync();
+    }
+    public async Task<Belt> UpdateBelt(Belt belt)
+    {
+        var obj = await _context.Belt.Where(x => x.Id == belt.Id).FirstOrDefaultAsync();
+        if (obj == null) return null;
+        obj.Size = belt.Size;
+        obj.Type = belt.Type;
+        obj.Quantity = belt.Quantity;
+        await _context.SaveChangesAsync();
+        return obj;
     }
 }
